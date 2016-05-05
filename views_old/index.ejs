@@ -1,0 +1,233 @@
+<% var title = 'Home' %>
+<% var current = 'home' %>
+<% include additional/header %>
+		<div class="main-content">
+			<div class="jackpot-list">
+				<!--<div class="deposits">
+					<h2 class="jackpot-heading">Jackpot #293823</h2>
+					<h4 class="jackpot-info-text"><b>8 items</b> worth <b>$10.58</b></h4>
+					<h4 class="jackpot-info-text">You deposited <b>$0.00</b> with a chance of <b>0.00%</b></h4>
+					<div class="jackpot-time">
+						<div class="progress">
+							<div class="progress-bar progress-bar-info progress-bar-success progress-bar-warning progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+								100s
+							</div>
+						</div>
+					</div>
+					<div class="jackpot-deposit">
+						<% if(typeof user === 'undefined' || user == null) { %>
+						<button class="btn btn-success" onclick="window.location='/auth/steam'" type="button">Login to Deposit</button>
+						<% } else { %>
+						<div class="selector-container">
+							<div class="item-selector">
+								<div id="selector-add" class="item-box" data-toggle="modal" data-target="#item-select-modal">
+									<span class="glyphicon glyphicon-plus" style="font-size: 1.3em;"></span>
+									<span>Add items</span>
+								</div>
+							</div>
+						</div>
+						<button id="bet-button" class="btn btn-success" type="button" data-toggle="modal" data-target="#deposit-modal">Deposit</button>
+						<% } %>
+					</div>
+				</div>
+				<hr>
+				<div class="deposits">
+					<% var color = Math.floor(Math.random()*16777215).toString(16); %>
+					<div class="new-round alert alert-green">
+						<div class="winner">
+							<img class="profile-pic" style="background: #<%= color %>" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/14/14a42b27b47892ddf496dd5c96f0bf6dc65d8e63.jpg">
+							<span><b>Blabla</b> won <span class="amount">$1337.89</span> with a chance of <span class="amount">99.9%</span> [<b>Winning ticket: 3806</b>].</span>
+						</div>
+					</div>
+					<% color = Math.floor(Math.random()*16777215).toString(16); %>
+					<div class="deposit">
+						<img class="profile-pic" style="background: #<%= color %>" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/14/14a42b27b47892ddf496dd5c96f0bf6dc65d8e63.jpg">
+						<span><b>Blabla</b> bet <span class="amount">7 items</span> worth <span class="amount">$1.30</span> [<b>Tickets 0-130</b>].</span>
+					</div>
+					<% color = Math.floor(Math.random()*16777215).toString(16); %>
+					<div class="deposit">
+						<img class="profile-pic" style="background: #<%= color %>" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/14/14a42b27b47892ddf496dd5c96f0bf6dc65d8e63.jpg">
+						<span><b>Blabla</b> bet <span class="amount">7 items</span> worth <span class="amount">$1.30</span> [<b>Tickets 0-130</b>].</span>
+					</div>
+					<% color = Math.floor(Math.random()*16777215).toString(16); %>
+					<div class="deposit">
+						<img class="profile-pic" style="background: #<%= color %>" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/14/14a42b27b47892ddf496dd5c96f0bf6dc65d8e63.jpg">
+						<span><b>Blabla</b> bet <span class="amount">7 items</span> worth <span class="amount">$1.30</span> [<b>Tickets 0-130</b>].</span>
+					</div>
+					<% color = Math.floor(Math.random()*16777215).toString(16); %>
+					<div class="deposit">
+						<img class="profile-pic" style="background: #<%= color %>" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/14/14a42b27b47892ddf496dd5c96f0bf6dc65d8e63.jpg">
+						<span><b>Blabla</b> bet <span class="amount">7 items</span> worth <span class="amount">$1.30</span> [<b>Tickets 0-130</b>].</span>
+					</div>
+					<div class="new-round alert alert-blue">
+						<div class="round-info">
+							<span>Round <b>#293823</b> started with hash <span class="amount">36d60e0195ab4c1db6bdf7f3b8977ab3</span>.</span>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="deposits">
+					<% color = Math.floor(Math.random()*16777215).toString(16); %>
+					<div class="new-round alert alert-green">
+						<div class="winner">
+							<img class="profile-pic" style="background: #<%= color %>" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/14/14a42b27b47892ddf496dd5c96f0bf6dc65d8e63.jpg">
+							<span><b>Blabla</b> won <span class="amount">$1337.89</span> with a chance of <span class="amount">99.9%</span> [<b>Winning ticket: 3806</b>].</span>
+						</div>
+					</div>
+					<% color = Math.floor(Math.random()*16777215).toString(16); %>
+					<div class="deposit">
+						<img class="profile-pic" style="background: #<%= color %>" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/14/14a42b27b47892ddf496dd5c96f0bf6dc65d8e63.jpg">
+						<span><b>Blabla</b> bet <span class="amount">7 items</span> worth <span class="amount">$1.30</span> [<b>Tickets 0-130</b>].</span>
+					</div>
+					<% color = Math.floor(Math.random()*16777215).toString(16); %>
+					<div class="deposit">
+						<img class="profile-pic" style="background: #<%= color %>" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/14/14a42b27b47892ddf496dd5c96f0bf6dc65d8e63.jpg">
+						<span><b>Blabla</b> bet <span class="amount">7 items</span> worth <span class="amount">$1.30</span> [<b>Tickets 0-130</b>].</span>
+					</div>
+					<% color = Math.floor(Math.random()*16777215).toString(16); %>
+					<div class="deposit">
+						<img class="profile-pic" style="background: #<%= color %>" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/14/14a42b27b47892ddf496dd5c96f0bf6dc65d8e63.jpg">
+						<span><b>Blabla</b> bet <span class="amount">7 items</span> worth <span class="amount">$1.30</span> [<b>Tickets 0-130</b>].</span>
+					</div>
+					<% color = Math.floor(Math.random()*16777215).toString(16); %>
+					<div class="deposit">
+						<img class="profile-pic" style="background: #<%= color %>" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/14/14a42b27b47892ddf496dd5c96f0bf6dc65d8e63.jpg">
+						<span><b>Blabla</b> bet <span class="amount">7 items</span> worth <span class="amount">$1.30</span> [<b>Tickets 0-130</b>].</span>
+					</div>
+					<div class="new-round alert alert-blue">
+						<div class="round-info">
+							<span>Round <b>#293823</b> started with hash <span class="amount">36d60e0195ab4c1db6bdf7f3b8977ab3</span>.</span>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="deposits">
+					<% color = Math.floor(Math.random()*16777215).toString(16); %>
+					<div class="new-round alert alert-green">
+						<div class="winner">
+							<img class="profile-pic" style="background: #<%= color %>" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/14/14a42b27b47892ddf496dd5c96f0bf6dc65d8e63.jpg">
+							<span><b>Blabla</b> won <span class="amount">$1337.89</span> with a chance of <span class="amount">99.9%</span> [<b>Winning ticket: 3806</b>].</span>
+						</div>
+					</div>
+					<% color = Math.floor(Math.random()*16777215).toString(16); %>
+					<div class="deposit">
+						<img class="profile-pic" style="background: #<%= color %>" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/14/14a42b27b47892ddf496dd5c96f0bf6dc65d8e63.jpg">
+						<span><b>Blabla</b> bet <span class="amount">7 items</span> worth <span class="amount">$1.30</span> [<b>Tickets 0-130</b>].</span>
+					</div>
+					<% color = Math.floor(Math.random()*16777215).toString(16); %>
+					<div class="deposit">
+						<img class="profile-pic" style="background: #<%= color %>" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/14/14a42b27b47892ddf496dd5c96f0bf6dc65d8e63.jpg">
+						<span><b>Blabla</b> bet <span class="amount">7 items</span> worth <span class="amount">$1.30</span> [<b>Tickets 0-130</b>].</span>
+					</div>
+					<% color = Math.floor(Math.random()*16777215).toString(16); %>
+					<div class="deposit">
+						<img class="profile-pic" style="background: #<%= color %>" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/14/14a42b27b47892ddf496dd5c96f0bf6dc65d8e63.jpg">
+						<span><b>Blabla</b> bet <span class="amount">7 items</span> worth <span class="amount">$1.30</span> [<b>Tickets 0-130</b>].</span>
+					</div>
+					<% color = Math.floor(Math.random()*16777215).toString(16); %>
+					<div class="deposit">
+						<img class="profile-pic" style="background: #<%= color %>" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/14/14a42b27b47892ddf496dd5c96f0bf6dc65d8e63.jpg">
+						<span><b>Blabla</b> bet <span class="amount">7 items</span> worth <span class="amount">$1.30</span> [<b>Tickets 0-130</b>].</span>
+					</div>
+					<div class="new-round alert alert-blue">
+						<div class="round-info">
+							<span>Round <b>#293823</b> started with hash <span class="amount">36d60e0195ab4c1db6bdf7f3b8977ab3</span>.</span>
+						</div>
+					</div>
+				</div>-->
+			</div>
+			<div class="jackpot-info">
+				<canvas id="jackpot-chart" width="350" height="350"></canvas>
+			</div>
+		</div>
+
+		<div class="modal fade" id="deposit-modal" tabindex="-1" role="dialog" aria-labelledby="deposit-modal" data-keyboard="false" data-backdrop="static">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+			    		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			    		<h3 class="modal-title">Deposit items...</h3>
+			    		<p class="inventory-price">Your Inventory: $0.00</p>
+			    	</div>
+			    	<div class="modal-body">
+			    		<div class="sk-circle">
+							<div class="sk-circle1 sk-child"></div>
+							<div class="sk-circle2 sk-child"></div>
+							<div class="sk-circle3 sk-child"></div>
+							<div class="sk-circle4 sk-child"></div>
+							<div class="sk-circle5 sk-child"></div>
+							<div class="sk-circle6 sk-child"></div>
+							<div class="sk-circle7 sk-child"></div>
+							<div class="sk-circle8 sk-child"></div>
+							<div class="sk-circle9 sk-child"></div>
+							<div class="sk-circle10 sk-child"></div>
+							<div class="sk-circle11 sk-child"></div>
+							<div class="sk-circle12 sk-child"></div>
+						</div>
+			    		<div class="user-items">
+			    		</div>
+			    	</div>
+			    	<div class="modal-footer">
+						<button id="modal-cancelbutton" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+						<button id="modal-depositbutton" class="btn btn-success disabled" type="button">Deposit (0 items)</button>
+			    	</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="item-select-modal" tabindex="-1" role="dialog" aria-labelledby="item-select-modal" data-keyboard="false" data-backdrop="static">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+			    		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			    		<h3 class="modal-title">Select items to bet...</h3>
+			    		<p class="inventory-price">Max. amount of items: 15</p>
+			    	</div>
+			    	<div class="modal-body">
+			    		<div class="sk-circle">
+							<div class="sk-circle1 sk-child"></div>
+							<div class="sk-circle2 sk-child"></div>
+							<div class="sk-circle3 sk-child"></div>
+							<div class="sk-circle4 sk-child"></div>
+							<div class="sk-circle5 sk-child"></div>
+							<div class="sk-circle6 sk-child"></div>
+							<div class="sk-circle7 sk-child"></div>
+							<div class="sk-circle8 sk-child"></div>
+							<div class="sk-circle9 sk-child"></div>
+							<div class="sk-circle10 sk-child"></div>
+							<div class="sk-circle11 sk-child"></div>
+							<div class="sk-circle12 sk-child"></div>
+						</div>
+			    		<div class="user-items">
+			    		</div>
+			    	</div>
+			    	<div class="modal-footer">
+						<button id="modal-inventorybutton" class="btn btn-success" type="button">Add items to inventory...</button>
+						<button id="modal-cancelbutton" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+						<button id="modal-addbutton" class="btn btn-success disabled" type="button">Add</button>
+			    	</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="deposit-success-modal" tabindex="-1" role="dialog" aria-labelledby="deposit-success-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title"></h4>
+					</div>
+					<div class="modal-body"></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<% if(typeof user !== 'undefined' && user != null) { %>
+		<script type="text/javascript">
+			var user = JSON.parse('<%- JSON.stringify(user) %>');
+		</script>
+		<% } %>
+<% include additional/footer %>

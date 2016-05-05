@@ -1,0 +1,56 @@
+<% var title = 'My Account' %>
+<% var current = 'myaccount' %>
+<% include ../additional/header %>
+		<% if(typeof alert !== 'undefined' && alert === 'settings_error') { %>
+		<% include ../additional/alerts/settings_error %>
+		<% } else if(typeof alert !== 'undefined' && alert === 'settings_error_tradeurl') { %>
+		<% include ../additional/alerts/settings_error_tradeurl %>
+		<% } else if(typeof alert !== 'undefined' && alert === 'settings_success') { %>
+		<% include ../additional/alerts/settings_success %>
+		<% } %>
+		
+		<% if(typeof context !== 'undefined' && context === 'deposit') { %>
+		<% include ../additional/alerts/context_deposit %>
+		<% } %>
+		<div class="main-content">
+			<div class="container">
+				<h3 class="title-heading">Your Account</h3>
+				<div class="profile-info">
+					<img class="profile-picture" src="<%= user.avatars.large %>">
+					<a href="http://steamcommunity.com/profiles/<%= user.steamid %>/"><p class="profile-name"><%= user.lastKnownName %></p></a>
+					<p class="profile-earnings">Your earnings: $<%= (user.earnings || 0.0).toFixed(2) %></p>
+					<!--<p class="profile-highestwin">Highest Win: $100.0</p>
+					<p class="profile-highestloss">Highest Loss: $100.0</p>-->
+				</div>
+				<div class="profile-settings">
+					<form action="/account" method="post">
+						<div class="form-group fg-tradeurl">
+							<label class="control-label">Steam Tradelink <a target="_blank" href="https://steamcommunity.com/my/tradeoffers/privacy#trade_offer_access_url">(click here to get yours!)</a></label>
+							<% if(user.tradeurl == null || typeof user.tradeurl === 'undefined' || user.tradeurl.id == null || typeof user.tradeurl.id === 'undefined' || user.tradeurl.id.toString().length < 8) { %>
+								<input type="text" class="form-control" placeholder="Insert your trade link here..." id="tradeurl" name="tradeurl">
+							<% } else { %>
+								<input type="text" class="form-control" placeholder="Insert your trade link here..." value="https://steamcommunity.com/tradeoffer/new/?partner=<%= user.tradeurl.id %>&token=<%= user.tradeurl.token %>" id="tradeurl" name="tradeurl">
+							<% } %>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Automatically send trade offer for winnings</label>
+							<select class="form-control" name="autoreturn">
+								<option value="0" <% if(user.settings == null || typeof user.settings === 'undefined' || user.settings.autoSendWinnings == 0) { %>selected<% } %>>No, keep winnings in my inventory</option>
+								<option value="1" <% if(user.settings !== null && typeof user.settings !== 'undefined' && user.settings.autoSendWinnings == 1) { %>selected<% } %>>Yes, send them back to my account</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Profile Privacy</label>
+							<select class="form-control" name="privacy">
+								<option value="0" <% if(user.settings == null || typeof user.settings === 'undefined' || user.settings.profilePrivacy == 0) { %>selected<% } %>>Show it to everyone</option>
+								<option value="1" <% if(user.settings !== null && typeof user.settings !== 'undefined' && user.settings.profilePrivacy == 1) { %>selected<% } %>>Keep it private</option>
+							</select>
+						</div>
+						<div class="button-div">
+							<input type="submit" class="btn btn-success submit-button" value="Submit">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+<% include ../additional/footer %>

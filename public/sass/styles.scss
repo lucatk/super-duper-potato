@@ -1,0 +1,434 @@
+// Import custom Bootstrap variables
+@import "compass";
+@import "bootstrap-variables";
+// Import Bootstrap
+@import "bootstrap";
+// or Import Bootstrap Flex
+// @import "bootstrap-flex";
+// or Import Bootstrap Grid
+// @import "bootstrap-grid";
+// or Import Bootstrap Reboot
+// @import "bootstrap-reboot";
+@import "font-awesome/font-awesome.scss";
+@import url(http://fonts.googleapis.com/css?family=Raleway:100,400,500,700);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:100,400,550,700);
+
+html,
+body {
+	//background: #f8f8f8;
+	font-family: "PT Sans", Raleway, arial, sans-serif;
+	overflow: auto;
+	height: 100%;
+	min-height: 100%;
+}
+
+.main-header {
+	.bg-faded {
+		//background: #eee;
+		border-radius: 0;
+	}
+
+	.navbar {
+		z-index: 1;
+		padding: 8px 7%;
+		margin: 0 auto;
+
+		.navbar-brand {
+			color: #0275d8;
+		}
+
+		.nav-link {
+			z-index: 1;
+			color: rgba(0, 0, 0, 0.4);
+			&:not(#account-dropdown) {
+				text-transform: lowercase;
+			}
+			.profile-picture {
+				height: 28px;
+				margin-top: -3px;
+				margin-left: 5px;
+				padding: 0;
+			    border-radius: 3px;
+			    border: 1px solid rgba(0, 0, 0, 0.4);
+			}
+			&:hover {
+				.profile-picture {
+					border-color: rgba(0, 0, 0, 0.8);
+				}
+			}
+		}
+	}
+}
+
+@mixin background($url) {
+	background: url($url) no-repeat fixed center;
+	background-size: cover;
+	-webkit-box-shadow: inset 10px 0 25px -4px rgba(0,0,0,0.2), inset -3px 0 16px 4px rgba(0,0,0,0.2);
+	-moz-box-shadow: inset 10px 0 25px -4px rgba(0,0,0,0.2), inset -3px 0 16px 4px rgba(0,0,0,0.2);
+	box-shadow: inset 10px 0 25px -4px rgba(0,0,0,0.2), inset -3px 0 16px 4px rgba(0,0,0,0.2);
+}
+
+.left-container {
+	float: left;
+	width: 17.5%;
+	height: 100%;
+	margin-top: -57px;
+	padding: 76px 0 20px;
+	position: relative;
+	overflow-y: hidden;
+
+	.jackpot-history {
+		position: absolute;
+		right: 0;
+		-webkit-transition: max-height 1s, margin 1s;
+	    -moz-transition: max-height 1s, margin 1s;
+	    -o-transition: max-height 1s, margin 1s;
+	    -ms-transition: max-height 1s, margin 1s;
+	    transition: max-height 1s, margin 1s;
+	    overflow: hidden;
+	    &:hover {
+	    	background: #f7f7f9;
+	    	/*.history-item.active {
+	    		background: none;
+	    	}*/
+	    }
+
+		.history-item {
+			/*-webkit-box-shadow: inset -10px 0 7px -2px rgba(0,0,0,0.2);
+			-moz-box-shadow: inset -10px 0 7px -2px rgba(0,0,0,0.2);
+			box-shadow: inset -10px 0 7px -2px rgba(0,0,0,0.2);*/
+			padding: 5px 5px 5px 10px;
+			border-top: 1px solid #eceeef;
+			cursor: pointer;
+			
+			p {
+				font-family: "PT Sans", arial, sans-serif;
+				margin: 0;
+				font-size: 13px;
+				&.history-heading {
+					text-transform: lowercase;
+					font-weight: lighter;
+				}
+				&.history-info {
+					font-family: "PT Sans", Raleway, arial, sans-serif;
+					font-size: 23px;
+					font-weight: 550;
+				}
+			}
+			&.active {
+				background: #eceeef;
+			}
+		    &:hover {
+		    	background: #eceeef;
+		    }
+
+			&:last-child {
+				border-bottom: 1px solid #eceeef;
+			}
+		}
+	}
+}
+
+.main-container {
+	width: 65%;
+	min-height: 100vh;
+	margin: -57px auto 0;
+	padding-top: 56px;
+	overflow-x: hidden;
+
+	&:not(.no-bg) {
+		-webkit-transition: width 1s, margin 1s;
+	    -moz-transition: width 1s, margin 1s;
+	    -o-transition: width 1s, margin 1s;
+	    -ms-transition: width 1s, margin 1s;
+	    transition: width 1s, margin 1s;
+		font-family: Raleway, arial, sans-serif;
+		@include background('../img/background-cbble.jpg');
+		margin: -57px 0 0;
+	}
+
+	.content-box {
+   		background: white;
+   		width: 80%;
+   		padding: 6px 10px;
+   		margin: 0 auto;
+   		-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+		-moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+		box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+		-webkit-transition: min-height 0.7s, margin 1s;
+	    -moz-transition: min-height 0.7s, margin 1s;
+	    -o-transition: min-height 0.7s, margin 1s;
+	    -ms-transition: min-height 0.7s, margin 1s;
+	    transition: min-height 0.7s, margin 1s;
+
+		h1 {
+			display: inline-block;
+			font-size: 1.6rem;
+			text-transform: lowercase;
+			vertical-align: top;
+		}
+	}
+
+   	.jackpot-info {
+   		margin: 40px auto 10px;
+		.info-items {
+			display: flex;
+			flex: 1;
+
+			.info-item {
+				&:not(:first-child) {
+					border-left: 1px solid #eceeef;
+				}
+				display: inline-block;
+				padding: 5px 10px;
+				flex: 1;
+				p {
+					margin: 0;
+					font-size: 13px;
+					text-align: center;
+					&.info-heading {
+						text-transform: lowercase;
+					}
+					&.info-content {
+						font-size: 18px;
+						font-weight: bolder;
+					}
+				}
+			}
+		}
+
+		.info-1 {
+			display: flex;
+			margin: 3px 0;
+			h1 {
+				margin: 0.5rem 15px 0 5px;
+			}
+		}
+
+		.info-2 {
+			margin: 3px 0;
+		}
+   	}
+
+   	.jackpot-deposit {
+   		margin: 10px auto 20px;
+   		padding: 0;
+   		position: relative;
+
+		p {
+			margin: 0;
+			padding: 6px;
+			font-size: 13px;
+			text-align: center;
+			-webkit-transition: opacity 1s;
+		    -moz-transition: opacity 1s;
+		    -o-transition: opacity 1s;
+		    -ms-transition: opacity 1s;
+		    transition: opacity 1s;
+			&.info-heading {
+				text-transform: lowercase;
+			}
+			&.info-content {
+				margin-top: 3px;
+				font-size: 18px;
+				font-weight: bolder;
+			}
+			&.add-items {
+				margin: 3px 0;
+				font-size: 16px;
+				text-transform: lowercase;
+				a {
+					display: inline-block;
+					width: 100%;
+					cursor: pointer;
+					&:hover,
+					&:link,
+					&:active,
+					&:visited {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+
+		.inventory-content {
+			padding: 5px 20px;
+			.item-box {
+	   			display: inline-block;
+	   			padding: 7px 12px;
+	   			border-radius: 10px;
+	   			border: 1px solid #818a91;
+	   			-webkit-box-shadow: inset 0px 0px 20px 3px rgba(236,238,239,1);
+				-moz-box-shadow: inset 0px 0px 20px 3px rgba(236,238,239,1);
+				box-shadow: inset 0px 0px 20px 3px rgba(236,238,239,1);
+				-webkit-transition: border-color 0.3s, box-shadow 0.3s;
+			    -moz-transition: border-color 0.3s, box-shadow 0.3s;
+			    -o-transition: border-color 0.3s, box-shadow 0.3s;
+			    -ms-transition: border-color 0.3s, box-shadow 0.3s;
+			    transition: border-color 0.3s, box-shadow 0.3s;
+				cursor: pointer;
+	   			p {
+	   				margin: 0;
+	   				padding: 0;
+	   			}
+	   			img {
+	   				display: block;
+	   				width: auto;
+	   				margin: 0 auto;
+	   			}
+	   			&:hover {
+	   				border-color: rgba(2,117,216, 0.6);
+		   			-webkit-box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.15);
+					-moz-box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.15);
+					box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.15);
+	   			}
+	   			&.checked {
+	   				border-color: #0275d8;
+		   			-webkit-box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.3);
+					-moz-box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.3);
+					box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.3);
+	   			}
+	   		}
+		}
+
+		.deposit-footer {
+			width: 100%;
+			padding: 10px;
+			background: #eceeef;
+   			position: absolute;
+			bottom: 0;
+
+			button {
+				margin: 0 calc(50% - 80px);
+			}
+		}
+   	}
+
+   	.jackpot-listing {
+   		margin: 30px auto;
+   		overflow-x: hidden;
+
+		hr {
+			margin: 15px 15px 8px;
+		}
+		.listing-item {
+   			position: relative;
+   			margin-top: 13px;
+
+   			.draw-container {
+				margin: 3px 0;
+				height: 32px;
+				width: 1000000vw;
+				padding: 0 5px;
+				transition: margin 6s;
+				overflow: hidden;
+   				.draw-avatar {
+   					display: inline-block;
+   					margin: 0 3px;
+   					width: 32px;
+   					border-radius: 5px;
+   				}
+   			}
+			.draw-indicator {
+				background: red;
+				height: 32px;
+				width: 3px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				margin-left: 50%;
+			}
+   			&:first-child {
+   				margin-top: 5px;
+   			}
+   			.fa:not(.fa-asterisk) {
+   				margin-left: 10px;
+   			}
+   			p {
+   				display: inline-block;
+   				position: absolute;
+   				left: 0;
+   				width: 100%;
+   				text-align: center;
+   				font-size: 15px;
+   				margin: 2px 0 0;
+	   			span {
+	   				font-weight: bolder;
+					font-family: "PT Sans", Raleway, arial, sans-serif;
+
+					&.notice {
+						font-weight: normal;
+						font-family: Raleway, arial, sans-serif;
+						font-size: 12px;
+					}
+					&.name {
+						font-family: Raleway, arial, sans-serif;
+					}
+	   			}
+	   			img {
+	   				height: 25px;
+	   				margin-right: 10px;
+	   				border-radius: 5px;
+	   			}
+   			}
+   			&.round-start {
+   				background: #49A9FD;
+   				color: #fff;
+   				padding: 3px 10px;
+   			}
+   		}
+   	}
+
+   	.account-settings {
+   		margin-top: 40px;
+   		-webkit-box-shadow:0 1px 10px rgba(0, 0, 0, 0.3);
+		-moz-box-shadow:0 1px 10px rgba(0, 0, 0, 0.3);
+		box-shadow:0 1px 10px rgba(0, 0, 0, 0.3);
+
+		form {
+			width: 90%;
+			margin: 10px auto 0;
+
+			button {
+				margin: 0 calc(50% - 30px);
+			}
+		}
+   	}
+}
+
+.caret {
+  position: relative;
+}
+
+.caret:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 6px;
+  border-top: 5px solid rgba(0, 0, 0, 0.2);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.caret:after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 5px;
+  border-top: 4px solid rgba(0, 0, 0, 0.2);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+}
+
+.nav-link:hover {
+	.caret:before,
+	.caret:after {
+		border-top-color: rgba(0, 0, 0, 0.6);
+	}
+}
+
+
+.bold {
+	font-size: 1.9rem;
+	font-weight: bolder;
+}
