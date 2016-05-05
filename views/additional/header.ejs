@@ -11,10 +11,10 @@
 	<body>
 		<div class="main-header">
 			<nav class="navbar navbar-light bg-faded">
-				<a class="navbar-brand" href="index.html">Jackpot</a>
+				<a class="navbar-brand" href="/">Jackpot</a>
 				<ul class="nav navbar-nav">
 					<li class="nav-item <% if(typeof current != 'undefined') { if(current == 'home') {%>active<% }} %>">
-						<a class="nav-link" href="index.html">Home<% if(typeof current != 'undefined') { if(current == 'home') {%> <span class="sr-only">(current)</span><% }} %></a>
+						<a class="nav-link" href="/">Home<% if(typeof current != 'undefined') { if(current == 'home') {%> <span class="sr-only">(current)</span><% }} %></a>
 					</li>
 					<li class="nav-item <% if(typeof current != 'undefined') { if(current == 'history') {%>active<% }} %>">
 						<a class="nav-link" href="#">History<% if(typeof current != 'undefined') { if(current == 'history') {%> <span class="sr-only">(current)</span><% }} %></a>
@@ -25,10 +25,12 @@
 				</ul>
 				<ul class="nav navbar-nav pull-xs-right">
 					<% if(typeof user === 'undefined' || user == null) { %>
-						<li class="nav-item" id="nav-login"><a href="/auth/steam"><img src="http://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_small.png"></a></li>
+						<li class="nav-item">
+							<a id="nav-login" class="nav-link" href="/auth/steam"><img src="http://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_small.png"></a>
+						</li>
 					<% } else { %>
 						<li class="nav-item <% if(typeof current != 'undefined') { if(current == 'myaccount') {%>active<% }} %>">
-							<a class="nav-link" href="account.html">My Account<% if(typeof current != 'undefined') { if(current == 'myaccount') {%> <span class="sr-only">(current)</span><% }} %></a>
+							<a class="nav-link" href="/account">My Account<% if(typeof current != 'undefined') { if(current == 'myaccount') {%> <span class="sr-only">(current)</span><% }} %></a>
 						</li>
 						<li class="nav-item dropdown <% if(typeof current != 'undefined') { if(current == 'myprofile') {%>active<% }} %>">
 							<a id="account-dropdown" class="nav-link" href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><%= user.lastKnownName %> <img class="profile-picture" src="<%= user.avatars.normal %>"><span class="caret"></span><% if(typeof current != 'undefined') { if(current == 'myprofile') {%> <span class="sr-only">(current)</span><% }} %></a>

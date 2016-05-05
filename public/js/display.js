@@ -1,13 +1,15 @@
 APP.display = {};
 
 APP.display.setupDisplay = function() {
-	/* Getting height of content for usage in  */
-	APP.display.contentHeight = $('.main-container').outerHeight()-95;
-	/* Setting max width of main container so animation works  */
-	$('.main-container').css('max-width', ($('.main-container').outerWidth() + 1) + 'px');
+	$(document).ready(function() {
+		/* Getting height of content for usage in  */
+		APP.display.contentHeight = $('.main-container').outerHeight()-95;
+		/* Setting max width of main container so animation works  */
+		$('.main-container').css('max-width', ($('.main-container').outerWidth() + 1) + 'px');
 
-	APP.display.setupHistoryBar();
-	APP.display.registerEvents();
+		APP.display.setupHistoryBar();
+		APP.display.registerEvents();
+	});
 };
 
 APP.display.registerEvents = function() {
@@ -45,6 +47,7 @@ APP.display.registerEvents = function() {
 };
 
 APP.display.setupHistoryBar = function() {
+	APP.display.historyBar = {};
 	APP.display.historyBar.itemHeight = $('.history-item').outerHeight();
 	APP.display.historyBar.historyItemCount = Math.floor(APP.display.contentHeight / APP.display.historyBar.itemHeight);
 	/* Setting max height of history container so animation works  */
@@ -66,3 +69,5 @@ APP.display.animateJackpotDraw = function(winner, animation) {
 	$('.draw-container').css('margin-left', '-' + offset + 'px');
 	if(!animation) $('.draw-container').removeClass('notransition');
 };
+
+APP.display.setupDisplay();
