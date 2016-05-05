@@ -1,0 +1,20 @@
+<% var title = 'My Account' %>
+<% var current = 'myaccount' %>
+<% include ../additional/header %>
+<div class="main-container no-bg">
+	<div class="account-settings content-box">
+		<h1>My <span class="bold">Account</span></h1>
+		<form>
+			<div class="form-group row">
+			    <label for="inputTradeUrl" class="col-sm-3 form-control-label">Your Trade URL</label>
+			    <div class="col-sm-9">
+			    	<input type="url" class="form-control" id="inputTradeUrl" placeholder="https://steamcommunity.com/tradeoffer/new/?partner=01234567&token=abcdefgh">
+				    <small class="text-muted">This is for you to be able to deposit and withdraw skins. <a href="http://steamcommunity.com/id/luuckappa/tradeoffers/privacy#trade_offer_access_url" target="_blank">Get yours here!</a></small>
+			    </div>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Save</button>
+			</div>
+		</form>
+	</div>
+</div>
