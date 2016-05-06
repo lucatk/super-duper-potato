@@ -91,9 +91,12 @@
 		</div>
 	</div>
 	<div class="jackpot-deposit content-box">
-		<!--<p class="info-heading">Sign in to Deposit</p>
-		<p class="info-content"><a href="/auth/steam"><img src="http://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_large_noborder.png"></a></p>-->
-		<p class="add-items"><a>Add items to deposit...</a></p>
+		<% if(typeof user === 'undefined' || user == null) { %>
+		<p class="info-heading">Sign in to Bet</p>
+		<p class="info-content"><a href="/auth/steam"><img src="img/signin_large.png"></a></p>
+		<% } else { %>
+		<p class="add-items"><a>Add items to bet...</a></p>
+		<% } %>
 	</div>
 	<div class="jackpot-listing content-box">
 		<div class="listing-item">

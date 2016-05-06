@@ -1,6 +1,7 @@
 *.bat
 *.sublime-*
-accesslogs
-logs
+accesslogs/*
+logs/*
+polldata/*
 node_modules/*
 public/.sass-cache/*

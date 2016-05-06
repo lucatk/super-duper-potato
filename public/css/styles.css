@@ -10829,7 +10829,6 @@ body {
 /* line 224, ../sass/styles.scss */
 .main-container .jackpot-deposit p {
   margin: 0;
-  padding: 6px;
   font-size: 13px;
   text-align: center;
   -webkit-transition: opacity 1s;
@@ -10838,37 +10837,40 @@ body {
   -ms-transition: opacity 1s;
   transition: opacity 1s;
 }
-/* line 234, ../sass/styles.scss */
+/* line 233, ../sass/styles.scss */
 .main-container .jackpot-deposit p.info-heading {
   text-transform: lowercase;
+  padding-top: 6px;
 }
 /* line 237, ../sass/styles.scss */
 .main-container .jackpot-deposit p.info-content {
   margin-top: 3px;
   font-size: 18px;
   font-weight: bolder;
+  padding-bottom: 10px;
 }
-/* line 242, ../sass/styles.scss */
+/* line 243, ../sass/styles.scss */
 .main-container .jackpot-deposit p.add-items {
   margin: 3px 0;
+  padding: 6px;
   font-size: 16px;
   text-transform: lowercase;
 }
-/* line 246, ../sass/styles.scss */
+/* line 248, ../sass/styles.scss */
 .main-container .jackpot-deposit p.add-items a {
   display: inline-block;
   width: 100%;
   cursor: pointer;
 }
-/* line 250, ../sass/styles.scss */
+/* line 252, ../sass/styles.scss */
 .main-container .jackpot-deposit p.add-items a:hover, .main-container .jackpot-deposit p.add-items a:link, .main-container .jackpot-deposit p.add-items a:active, .main-container .jackpot-deposit p.add-items a:visited {
   text-decoration: none;
 }
-/* line 260, ../sass/styles.scss */
+/* line 262, ../sass/styles.scss */
 .main-container .jackpot-deposit .inventory-content {
   padding: 5px 20px;
 }
-/* line 262, ../sass/styles.scss */
+/* line 264, ../sass/styles.scss */
 .main-container .jackpot-deposit .inventory-content .item-box {
   display: inline-block;
   padding: 7px 12px;
@@ -10884,32 +10886,32 @@ body {
   transition: border-color 0.3s, box-shadow 0.3s;
   cursor: pointer;
 }
-/* line 276, ../sass/styles.scss */
+/* line 278, ../sass/styles.scss */
 .main-container .jackpot-deposit .inventory-content .item-box p {
   margin: 0;
   padding: 0;
 }
-/* line 280, ../sass/styles.scss */
+/* line 282, ../sass/styles.scss */
 .main-container .jackpot-deposit .inventory-content .item-box img {
   display: block;
   width: auto;
   margin: 0 auto;
 }
-/* line 285, ../sass/styles.scss */
+/* line 287, ../sass/styles.scss */
 .main-container .jackpot-deposit .inventory-content .item-box:hover {
   border-color: rgba(2, 117, 216, 0.6);
   -webkit-box-shadow: inset 0px 0px 20px 3px rgba(2, 117, 216, 0.15);
   -moz-box-shadow: inset 0px 0px 20px 3px rgba(2, 117, 216, 0.15);
   box-shadow: inset 0px 0px 20px 3px rgba(2, 117, 216, 0.15);
 }
-/* line 291, ../sass/styles.scss */
+/* line 293, ../sass/styles.scss */
 .main-container .jackpot-deposit .inventory-content .item-box.checked {
   border-color: #0275d8;
   -webkit-box-shadow: inset 0px 0px 20px 3px rgba(2, 117, 216, 0.3);
   -moz-box-shadow: inset 0px 0px 20px 3px rgba(2, 117, 216, 0.3);
   box-shadow: inset 0px 0px 20px 3px rgba(2, 117, 216, 0.3);
 }
-/* line 300, ../sass/styles.scss */
+/* line 302, ../sass/styles.scss */
 .main-container .jackpot-deposit .deposit-footer {
   width: 100%;
   padding: 10px;
@@ -10917,25 +10919,25 @@ body {
   position: absolute;
   bottom: 0;
 }
-/* line 307, ../sass/styles.scss */
+/* line 309, ../sass/styles.scss */
 .main-container .jackpot-deposit .deposit-footer button {
   margin: 0 calc(50% - 80px);
 }
-/* line 313, ../sass/styles.scss */
+/* line 315, ../sass/styles.scss */
 .main-container .jackpot-listing {
   margin: 30px auto;
   overflow-x: hidden;
 }
-/* line 317, ../sass/styles.scss */
+/* line 319, ../sass/styles.scss */
 .main-container .jackpot-listing hr {
   margin: 15px 15px 8px;
 }
-/* line 320, ../sass/styles.scss */
+/* line 322, ../sass/styles.scss */
 .main-container .jackpot-listing .listing-item {
   position: relative;
   margin-top: 13px;
 }
-/* line 324, ../sass/styles.scss */
+/* line 326, ../sass/styles.scss */
 .main-container .jackpot-listing .listing-item .draw-container {
   margin: 3px 0;
   height: 32px;
@@ -10944,14 +10946,14 @@ body {
   transition: margin 6s;
   overflow: hidden;
 }
-/* line 331, ../sass/styles.scss */
+/* line 333, ../sass/styles.scss */
 .main-container .jackpot-listing .listing-item .draw-container .draw-avatar {
   display: inline-block;
   margin: 0 3px;
   width: 32px;
   border-radius: 5px;
 }
-/* line 338, ../sass/styles.scss */
+/* line 340, ../sass/styles.scss */
 .main-container .jackpot-listing .listing-item .draw-indicator {
   background: red;
   height: 32px;
@@ -10961,15 +10963,15 @@ body {
   left: 0;
   margin-left: 50%;
 }
-/* line 347, ../sass/styles.scss */
+/* line 349, ../sass/styles.scss */
 .main-container .jackpot-listing .listing-item:first-child {
   margin-top: 5px;
 }
-/* line 350, ../sass/styles.scss */
+/* line 352, ../sass/styles.scss */
 .main-container .jackpot-listing .listing-item .fa:not(.fa-asterisk) {
   margin-left: 10px;
 }
-/* line 353, ../sass/styles.scss */
+/* line 355, ../sass/styles.scss */
 .main-container .jackpot-listing .listing-item p {
   display: inline-block;
   position: absolute;
@@ -10979,56 +10981,56 @@ body {
   font-size: 15px;
   margin: 2px 0 0;
 }
-/* line 361, ../sass/styles.scss */
+/* line 363, ../sass/styles.scss */
 .main-container .jackpot-listing .listing-item p span {
   font-weight: bolder;
   font-family: "PT Sans", Raleway, arial, sans-serif;
 }
-/* line 365, ../sass/styles.scss */
+/* line 367, ../sass/styles.scss */
 .main-container .jackpot-listing .listing-item p span.notice {
   font-weight: normal;
   font-family: Raleway, arial, sans-serif;
   font-size: 12px;
 }
-/* line 370, ../sass/styles.scss */
+/* line 372, ../sass/styles.scss */
 .main-container .jackpot-listing .listing-item p span.name {
   font-family: Raleway, arial, sans-serif;
 }
-/* line 374, ../sass/styles.scss */
+/* line 376, ../sass/styles.scss */
 .main-container .jackpot-listing .listing-item p img {
   height: 25px;
   margin-right: 10px;
   border-radius: 5px;
 }
-/* line 380, ../sass/styles.scss */
+/* line 382, ../sass/styles.scss */
 .main-container .jackpot-listing .listing-item.round-start {
   background: #49A9FD;
   color: #fff;
   padding: 3px 10px;
 }
-/* line 388, ../sass/styles.scss */
+/* line 390, ../sass/styles.scss */
 .main-container .account-settings {
   margin-top: 40px;
   -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
 }
-/* line 394, ../sass/styles.scss */
+/* line 396, ../sass/styles.scss */
 .main-container .account-settings form {
   width: 90%;
   margin: 10px auto 0;
 }
-/* line 398, ../sass/styles.scss */
+/* line 400, ../sass/styles.scss */
 .main-container .account-settings form button {
   margin: 0 calc(50% - 30px);
 }
 
-/* line 405, ../sass/styles.scss */
+/* line 407, ../sass/styles.scss */
 .caret {
   position: relative;
 }
 
-/* line 409, ../sass/styles.scss */
+/* line 411, ../sass/styles.scss */
 .caret:before {
   content: '';
   position: absolute;
@@ -11039,7 +11041,7 @@ body {
   border-right: 5px solid transparent;
 }
 
-/* line 419, ../sass/styles.scss */
+/* line 421, ../sass/styles.scss */
 .caret:after {
   content: '';
   position: absolute;
@@ -11050,13 +11052,13 @@ body {
   border-right: 4px solid transparent;
 }
 
-/* line 430, ../sass/styles.scss */
+/* line 432, ../sass/styles.scss */
 .nav-link:hover .caret:before,
 .nav-link:hover .caret:after {
   border-top-color: rgba(0, 0, 0, 0.6);
 }
 
-/* line 437, ../sass/styles.scss */
+/* line 439, ../sass/styles.scss */
 .bold {
   font-size: 1.9rem;
   font-weight: bolder;

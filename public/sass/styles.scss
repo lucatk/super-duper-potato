@@ -223,7 +223,6 @@ body {
 
 		p {
 			margin: 0;
-			padding: 6px;
 			font-size: 13px;
 			text-align: center;
 			-webkit-transition: opacity 1s;
@@ -233,14 +232,17 @@ body {
 		    transition: opacity 1s;
 			&.info-heading {
 				text-transform: lowercase;
+				padding-top: 6px;
 			}
 			&.info-content {
 				margin-top: 3px;
 				font-size: 18px;
 				font-weight: bolder;
+				padding-bottom: 10px;
 			}
 			&.add-items {
 				margin: 3px 0;
+				padding: 6px;
 				font-size: 16px;
 				text-transform: lowercase;
 				a {
