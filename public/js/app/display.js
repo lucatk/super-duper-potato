@@ -16,7 +16,7 @@ APP.display.registerEvents = function() {
 	/* Event for "Add items to bet" button */
 	$('.add-items a').click(function() {
 		APP.display.showBetScreen();
-		//TODO: load user inventory
+		APP.game.loadUserInventory(APP.display.addBetScreenItems);
 	});
 };
 
@@ -58,14 +58,14 @@ APP.display.showBetScreen = function() {
 		'min-height': ($('.main-container').height() - 96) + 'px'
 	});
 
-	$(this).fadeOut(400);
+	$('.add-items a').fadeOut(400);
 	$('.jackpot-info').fadeOut(700);
 	$('.jackpot-listing').fadeOut(700);
 
 	setTimeout(function() {
 		var html = '<div class="inventory-content">';
 		html +='<div class="item-box"><p class="item-title">AK-47 | Redline</p><img class="item-image" src="http://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJemkV09-5lpKKqPrxN7LEm1Rd6dd2j6eQ9N2t2wK3-ENsZ23wcIKRdQE2NwyD_FK_kLq9gJDu7p_KyyRr7nNw-z-DyIFJbNUz/80fx60f"><p class="item-info">FT | $5.49</p></div>'
-		html += '</div><div class="deposit-footer"><button type="submit" class="btn btn-primary" disabled>Add to deposit...</button></div>';
+		html += '</div><div class="deposit-footer"><a>Cancel</a><div class="button-container"><button type="submit" class="btn btn-primary" disabled>Add to deposit...</button></div></div>';
 		$('.jackpot-deposit').html($('.jackpot-deposit').html() + html);
 		$('.item-box').click(function() {
 			$(this).toggleClass('checked');
@@ -73,6 +73,10 @@ APP.display.showBetScreen = function() {
 		$('.jackpot-deposit').children().not('.add-items').hide();
 		$('.jackpot-deposit').children().not('.add-items').fadeIn(300);
 	}, 500);
+};
+
+APP.display.addBetScreenItems = function(items) {
+	
 };
 
 APP.display.setupDisplay();
