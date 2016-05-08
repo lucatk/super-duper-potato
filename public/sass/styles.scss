@@ -113,7 +113,7 @@ body {
 			padding: 5px 5px 5px 10px;
 			border-top: 1px solid #eceeef;
 			cursor: pointer;
-			
+
 			p {
 				font-family: "PT Sans", arial, sans-serif;
 				margin: 0;
@@ -166,9 +166,9 @@ body {
    		padding: 6px 10px;
    		margin: 0 auto;
    		-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
-		-moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
-		box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
-		-webkit-transition: min-height 0.7s, margin 1s;
+			-moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+			box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+			-webkit-transition: min-height 0.7s, margin 1s;
 	    -moz-transition: min-height 0.7s, margin 1s;
 	    -o-transition: min-height 0.7s, margin 1s;
 	    -ms-transition: min-height 0.7s, margin 1s;
@@ -228,11 +228,11 @@ body {
    		padding: 0;
    		position: relative;
 
-		p {
-			margin: 0;
-			font-size: 13px;
-			text-align: center;
-			-webkit-transition: opacity 1s;
+			p {
+				margin: 0;
+				font-size: 13px;
+				text-align: center;
+				-webkit-transition: opacity 1s;
 		    -moz-transition: opacity 1s;
 		    -o-transition: opacity 1s;
 		    -ms-transition: opacity 1s;
@@ -274,14 +274,14 @@ body {
 	   			border-radius: 10px;
 	   			border: 1px solid #818a91;
 	   			-webkit-box-shadow: inset 0px 0px 20px 3px rgba(236,238,239,1);
-				-moz-box-shadow: inset 0px 0px 20px 3px rgba(236,238,239,1);
-				box-shadow: inset 0px 0px 20px 3px rgba(236,238,239,1);
-				-webkit-transition: border-color 0.3s, box-shadow 0.3s;
+					-moz-box-shadow: inset 0px 0px 20px 3px rgba(236,238,239,1);
+					box-shadow: inset 0px 0px 20px 3px rgba(236,238,239,1);
+					-webkit-transition: border-color 0.3s, box-shadow 0.3s;
 			    -moz-transition: border-color 0.3s, box-shadow 0.3s;
 			    -o-transition: border-color 0.3s, box-shadow 0.3s;
 			    -ms-transition: border-color 0.3s, box-shadow 0.3s;
 			    transition: border-color 0.3s, box-shadow 0.3s;
-				cursor: pointer;
+					cursor: pointer;
 	   			p {
 	   				margin: 0;
 	   				padding: 0;
@@ -294,14 +294,14 @@ body {
 	   			&:hover {
 	   				border-color: rgba(2,117,216, 0.6);
 		   			-webkit-box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.15);
-					-moz-box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.15);
-					box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.15);
+						-moz-box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.15);
+						box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.15);
 	   			}
 	   			&.checked {
 	   				border-color: #0275d8;
 		   			-webkit-box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.3);
-					-moz-box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.3);
-					box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.3);
+						-moz-box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.3);
+						box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.3);
 	   			}
 	   		}
 		}
@@ -310,13 +310,14 @@ body {
 			width: 100%;
 			padding: 10px;
 			background: #eceeef;
-   			position: absolute;
+   		position: absolute;
 			bottom: 0;
 
 			a {
 				display: inline-block;
 				cursor: pointer;
 				padding: 3px 0;
+				margin-top: 5px;
 				&:hover,
 				&:link,
 				&:active,
@@ -324,17 +325,10 @@ body {
 					text-decoration: none;
 				}
 			}
-			.button-container {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				display: inline-block;
-				button {
-					display: block;
-					margin: auto;
-				}
+			button {
+				display: block;
+				float: right;
+				margin-right: calc(50% - 75px);
 			}
 		}
    	}

@@ -13,7 +13,7 @@
     "express": "~4.13.1",
     "express-session": "^1.13.0",
     "file-stream-rotator": "0.0.6",
-    "mariasql": "^0.2.5",
+    "microtime": "^2.1.1",
     "mkdirp": "^0.5.1",
     "mongodb": "^2.1.11",
     "morgan": "~1.6.1",

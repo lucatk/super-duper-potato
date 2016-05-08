@@ -5,3 +5,5 @@ logs/*
 polldata/*
 node_modules/*
 public/.sass-cache/*
+mongo/*
+.DS_Store
