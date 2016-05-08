@@ -61,12 +61,12 @@ APP.display.showBetScreen = function() {
 		'min-height': ($('.main-container').height() - 96) + 'px'
 	});
 
-	$('.add-items a').fadeOut(400);
+	$('.add-items').fadeOut(400);
 	$('.jackpot-info').fadeOut(700);
 	$('.jackpot-listing').fadeOut(700);
 
 	setTimeout(function() {
-		var html = '<div class="inventory-content"></div><div class="deposit-footer"><a>Cancel</a><button type="submit" class="btn btn-primary" disabled>Add to deposit...</button></div>';
+		var html = '<div class="inventory-content"><div class="inventory-container"></div></div><div class="deposit-footer"><a>Cancel</a><button type="submit" class="btn btn-primary" disabled>Add to deposit...</button></div>';
 		$('.jackpot-deposit').html($('.jackpot-deposit').html() + html);
 		$('.item-box').click(function() {
 			$(this).toggleClass('checked');
@@ -82,7 +82,7 @@ APP.display.hideBetScreen = function() {
 	$('.inventory-content').remove();
 	$('.deposit-footer').remove();
 
-	$('.add-items a').fadeIn(400);
+	$('.add-items').fadeIn(400);
 	$('.jackpot-info').fadeIn(700);
 	$('.jackpot-listing').fadeIn(700);
 
@@ -124,7 +124,7 @@ APP.display.buildInventoryItem = function(value) {
 			wear = val.name.replace('-', ' ').replace(/[^A-Z]/g, '');;
 		}
 	});
-	var item = '<div class="item-box" data-classid="' + value.classid + '" data-instanceid="' + value.instanceid + '" data-assetid="' + value.assetid + '"><p class="item-title">' + value.name + '</p>';
+	var item = '<div class="item-box" data-classid="' + value.classid + '" data-instanceid="' + value.instanceid + '" data-assetid="' + value.assetid + '"><p class="item-weapon">' + value.name.split(' |')[0] + '</p><p class="item-title">' + value.name.split('| ')[1] + '</p>';
 	item += '<img class="item-image" src="//steamcommunity-a.akamaihd.net/economy/image/' + value.icon_url + '/80fx60f">';
 	item += '<p class="item-info">' + wear + ' | $' + value.price + '</p></div>';
 
@@ -141,7 +141,7 @@ APP.display.addBetScreenItems = function(msg) {
 		});
 	});
 	setTimeout(function() {
-		$('.inventory-content').html(invHtml);
+		$('.inventory-content .inventory-container').html(invHtml);
 	}, 501);
 };
 
