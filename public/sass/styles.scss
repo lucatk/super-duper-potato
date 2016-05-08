@@ -267,10 +267,16 @@ body {
 		}
 
 		.inventory-content {
+			display: flex;
 			padding: 5px 20px;
+			width: 100%;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
 			.item-box {
 	   			display: inline-block;
 	   			padding: 7px 12px;
+					margin: 5px;
 	   			border-radius: 10px;
 	   			border: 1px solid #818a91;
 	   			-webkit-box-shadow: inset 0px 0px 20px 3px rgba(236,238,239,1);
@@ -282,9 +288,14 @@ body {
 			    -ms-transition: border-color 0.3s, box-shadow 0.3s;
 			    transition: border-color 0.3s, box-shadow 0.3s;
 					cursor: pointer;
+					max-width: 20%;
 	   			p {
 	   				margin: 0;
 	   				padding: 0;
+						line-height: 1.3;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
 	   			}
 	   			img {
 	   				display: block;
@@ -303,6 +314,12 @@ body {
 						-moz-box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.3);
 						box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.3);
 	   			}
+					&:first-child {
+						margin-left: 0;
+					}
+					&:last-child {
+						margin-right: 0;
+					}
 	   		}
 		}
 
