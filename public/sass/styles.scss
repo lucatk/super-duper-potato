@@ -62,8 +62,8 @@ body {
 				margin-top: -3px;
 				margin-left: 5px;
 				padding: 0;
-			    border-radius: 3px;
-			    border: 1px solid rgba(0, 0, 0, 0.4);
+		    border-radius: 3px;
+		    border: 1px solid rgba(0, 0, 0, 0.4);
 			}
 			&:hover {
 				.profile-picture {
@@ -101,17 +101,17 @@ body {
 		position: absolute;
 		right: 0;
 		-webkit-transition: max-height 1s, margin 1s;
-	    -moz-transition: max-height 1s, margin 1s;
-	    -o-transition: max-height 1s, margin 1s;
-	    -ms-transition: max-height 1s, margin 1s;
-	    transition: max-height 1s, margin 1s;
-	    overflow: hidden;
-	    &:hover {
-	    	background: #f7f7f9;
-	    	/*.history-item.active {
-	    		background: none;
-	    	}*/
-	    }
+    -moz-transition: max-height 1s, margin 1s;
+    -o-transition: max-height 1s, margin 1s;
+    -ms-transition: max-height 1s, margin 1s;
+    transition: max-height 1s, margin 1s;
+    overflow: hidden;
+    &:hover {
+    	background: #f7f7f9;
+    	/*.history-item.active {
+    		background: none;
+    	}*/
+    }
 
 		.history-item {
 			/*-webkit-box-shadow: inset -10px 0 7px -2px rgba(0,0,0,0.2);
@@ -138,9 +138,9 @@ body {
 			&.active {
 				background: #eceeef;
 			}
-		    &:hover {
-		    	background: #eceeef;
-		    }
+	    &:hover {
+	    	background: #eceeef;
+	    }
 
 			&:last-child {
 				border-bottom: 1px solid #eceeef;
@@ -158,28 +158,28 @@ body {
 
 	&:not(.no-bg) {
 		-webkit-transition: width 1s, margin 1s;
-	    -moz-transition: width 1s, margin 1s;
-	    -o-transition: width 1s, margin 1s;
-	    -ms-transition: width 1s, margin 1s;
-	    transition: width 1s, margin 1s;
+    -moz-transition: width 1s, margin 1s;
+    -o-transition: width 1s, margin 1s;
+    -ms-transition: width 1s, margin 1s;
+    transition: width 1s, margin 1s;
 		font-family: Raleway, arial, sans-serif;
 		@include background('../img/background-cbble.jpg');
 		margin: -57px 0 0;
 	}
 
 	.content-box {
-   		background: white;
-   		width: 80%;
-   		padding: 6px 10px;
-   		margin: 0 auto;
-   		-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+ 		background: white;
+ 		width: 80%;
+ 		padding: 6px 10px;
+ 		margin: 0 auto;
+ 		-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
 		-moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
 		box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
 		-webkit-transition: min-height 0.7s, margin 1s;
-	    -moz-transition: min-height 0.7s, margin 1s;
-	    -o-transition: min-height 0.7s, margin 1s;
-	    -ms-transition: min-height 0.7s, margin 1s;
-	    transition: min-height 0.7s, margin 1s;
+    -moz-transition: min-height 0.7s, margin 1s;
+    -o-transition: min-height 0.7s, margin 1s;
+    -ms-transition: min-height 0.7s, margin 1s;
+    transition: min-height 0.7s, margin 1s;
 
 		h1 {
 			display: inline-block;
@@ -189,8 +189,8 @@ body {
 		}
 	}
 
-   	.jackpot-info {
-   		margin: 40px auto 10px;
+ 	.jackpot-info {
+ 		margin: 40px auto 10px;
 		.info-items {
 			display: flex;
 			flex: 1;
@@ -228,22 +228,20 @@ body {
 		.info-2 {
 			margin: 3px 0;
 		}
-   	}
+ 	}
 
-   	.jackpot-deposit {
-   		margin: 10px auto 20px;
-   		padding: 0;
-   		position: relative;
+ 	.jackpot-deposit {
+ 		margin: 10px auto 20px;
 
 		p {
 			margin: 0;
 			font-size: 13px;
 			text-align: center;
 			-webkit-transition: opacity 1s;
-		    -moz-transition: opacity 1s;
-		    -o-transition: opacity 1s;
-		    -ms-transition: opacity 1s;
-		    transition: opacity 1s;
+	    -moz-transition: opacity 1s;
+	    -o-transition: opacity 1s;
+	    -ms-transition: opacity 1s;
+	    transition: opacity 1s;
 			&.info-heading {
 				text-transform: lowercase;
 				padding-top: 6px;
@@ -272,7 +270,12 @@ body {
 				}
 			}
 		}
+ 	}
 
+	.jackpot-deposit,
+	.deposit-box {
+		position: relative;
+ 		padding: 0;
 		.inventory-content {
 			padding: 5px 20px;
 			width: 100%;
@@ -285,61 +288,68 @@ body {
 				justify-content: center;
 			}
 			.item-box {
-	   			display: inline-block;
-	   			padding: 7px 12px;
+				display: inline-block;
+				padding: 7px 12px;
 				margin: 5px;
-	   			border-radius: 10px;
-	   			border: 1px solid #818a91;
-	   			-webkit-box-shadow: inset 0px 0px 20px 3px rgba(236,238,239,1);
+				border-radius: 10px;
+				border: 1px solid #818a91;
+				-webkit-box-shadow: inset 0px 0px 20px 3px rgba(236,238,239,1);
 				-moz-box-shadow: inset 0px 0px 20px 3px rgba(236,238,239,1);
 				box-shadow: inset 0px 0px 20px 3px rgba(236,238,239,1);
 				-webkit-transition: border-color 0.3s, box-shadow 0.3s;
-			    -moz-transition: border-color 0.3s, box-shadow 0.3s;
-			    -o-transition: border-color 0.3s, box-shadow 0.3s;
-			    -ms-transition: border-color 0.3s, box-shadow 0.3s;
-			    transition: border-color 0.3s, box-shadow 0.3s;
+		    -moz-transition: border-color 0.3s, box-shadow 0.3s;
+		    -o-transition: border-color 0.3s, box-shadow 0.3s;
+		    -ms-transition: border-color 0.3s, box-shadow 0.3s;
+		    transition: border-color 0.3s, box-shadow 0.3s;
 				cursor: pointer;
 				flex-basis: 20%;
 				max-width: 20%;
-	   			p {
-	   				margin: 0;
-	   				padding: 0;
-	   				font-size: 12px;
+				position: relative;
+				p {
+					margin: 0;
+					padding: 0;
+					font-size: 12px;
 					white-space: nowrap;
 					overflow: hidden;
 					text-overflow: ellipsis;
-	   			}
-	   			img {
-	   				display: block;
-	   				max-width: 100%;
-	   				margin: 0 auto;
-	   			}
-	   			&:hover {
-	   				border-color: rgba(2,117,216, 0.6);
-		   			-webkit-box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.15);
+					text-align: left;
+					&.item-price {
+						position: absolute;
+						bottom: 7px;
+						right: 12px;
+					}
+				}
+				img {
+					display: block;
+					max-width: 100%;
+					margin: 0 auto;
+				}
+				&:hover {
+					border-color: rgba(2,117,216, 0.6);
+		 			-webkit-box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.15);
 					-moz-box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.15);
 					box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.15);
-	   			}
-	   			&.checked {
-	   				border-color: #0275d8;
-		   			-webkit-box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.3);
+		 		}
+				&.checked {
+					border-color: #0275d8;
+		 			-webkit-box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.3);
 					-moz-box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.3);
 					box-shadow: inset 0px 0px 20px 3px rgba(2,117,216,0.3);
-	   			}
+		 		}
 				&:first-child {
 					margin-left: 0;
 				}
 				&:last-child {
 					margin-right: 0;
 				}
-	   		}
+	 		}
 		}
 
 		.deposit-footer {
 			width: 100%;
 			padding: 10px;
 			background: #eceeef;
-   			position: absolute;
+			position: absolute;
 			bottom: 0;
 
 			a {
@@ -360,33 +370,33 @@ body {
 				margin-right: calc(50% - 75px);
 			}
 		}
-   	}
+	}
 
-   	.jackpot-listing {
-   		margin: 30px auto;
-   		overflow-x: hidden;
+ 	.jackpot-listing {
+ 		margin: 30px auto;
+ 		overflow-x: hidden;
 
 		hr {
 			margin: 15px 15px 8px;
 		}
 		.listing-item {
-   			position: relative;
-   			margin-top: 13px;
+ 			position: relative;
+ 			margin-top: 13px;
 
-   			.draw-container {
+ 			.draw-container {
 				margin: 3px 0;
 				height: 32px;
 				width: 1000000vw;
 				padding: 0 5px;
 				transition: margin 6s;
 				overflow: hidden;
-   				.draw-avatar {
-   					display: inline-block;
-   					margin: 0 3px;
-   					width: 32px;
-   					border-radius: 5px;
-   				}
-   			}
+ 				.draw-avatar {
+ 					display: inline-block;
+ 					margin: 0 3px;
+ 					width: 32px;
+ 					border-radius: 5px;
+ 				}
+ 			}
 			.draw-indicator {
 				background: red;
 				height: 32px;
@@ -396,22 +406,22 @@ body {
 				left: 0;
 				margin-left: 50%;
 			}
-   			&:first-child {
-   				margin-top: 5px;
-   			}
-   			.fa:not(.fa-asterisk) {
-   				margin-left: 10px;
-   			}
-   			p {
-   				display: inline-block;
-   				position: absolute;
-   				left: 0;
-   				width: 100%;
-   				text-align: center;
-   				font-size: 15px;
-   				margin: 2px 0 0;
-	   			span {
-	   				font-weight: bolder;
+ 			&:first-child {
+ 				margin-top: 5px;
+ 			}
+ 			.fa:not(.fa-asterisk) {
+ 				margin-left: 10px;
+ 			}
+ 			p {
+ 				display: inline-block;
+ 				position: absolute;
+ 				left: 0;
+ 				width: 100%;
+ 				text-align: center;
+ 				font-size: 15px;
+ 				margin: 2px 0 0;
+   			span {
+   				font-weight: bolder;
 					font-family: "PT Sans", Raleway, arial, sans-serif;
 
 					&.notice {
@@ -422,27 +432,22 @@ body {
 					&.name {
 						font-family: Raleway, arial, sans-serif;
 					}
-	   			}
-	   			img {
-	   				height: 25px;
-	   				margin-right: 10px;
-	   				border-radius: 5px;
-	   			}
    			}
-   			&.round-start {
-   				background: #49A9FD;
-   				color: #fff;
-   				padding: 3px 10px;
+   			img {
+   				height: 25px;
+   				margin-right: 10px;
+   				border-radius: 5px;
    			}
-   		}
-   	}
+ 			}
+ 			&.round-start {
+ 				background: #49A9FD;
+ 				color: #fff;
+ 				padding: 3px 10px;
+ 			}
+ 		}
+ 	}
 
-   	.account-settings {
-   		margin-top: 40px;
-   		-webkit-box-shadow:0 1px 10px rgba(0, 0, 0, 0.3);
-		-moz-box-shadow:0 1px 10px rgba(0, 0, 0, 0.3);
-		box-shadow:0 1px 10px rgba(0, 0, 0, 0.3);
-
+ 	.account-settings {
 		form {
 			width: 90%;
 			margin: 10px auto 0;
@@ -451,7 +456,42 @@ body {
 				margin: 0 calc(50% - 30px);
 			}
 		}
-   	}
+ 	}
+
+	&.no-bg .content-box {
+ 		margin-top: 40px;
+ 		-webkit-box-shadow:0 1px 10px rgba(0, 0, 0, 0.3);
+		-moz-box-shadow:0 1px 10px rgba(0, 0, 0, 0.3);
+		box-shadow:0 1px 10px rgba(0, 0, 0, 0.3);
+
+		h1 {
+			margin: 5px;
+		}
+		&.deposit-box {
+			h1 {
+				margin: 11px 15px;
+			}
+			.deposit-body {
+				padding-bottom: 55px;
+				> p {
+					float: right;
+					margin: 8px 12px;
+					color: rgba(0, 0, 0, 0.4);
+				}
+			}
+			.inventory-content {
+				height: calc(77vh - 55px);
+				border-top: 1px solid rgba(0, 0, 0, 0.1);
+				-webkit-box-shadow: inset 0 10px 10px -10px rgba(0,0,0,0.1);
+				-moz-box-shadow: inset 0 10px 10px -10px rgba(0,0,0,0.1);
+				box-shadow: inset 0 10px 10px -10px rgba(0,0,0,0.1);
+			}
+
+			.deposit-footer {
+				bottom: 0;
+			}
+		}
+	}
 }
 
 .caret {

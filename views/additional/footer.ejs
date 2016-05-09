@@ -1,9 +1,13 @@
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/app/main.js"></script>
+		<script type="text/javascript">
+			var APP = APP || {};
+			APP.page = "<%= current %>";
+		</script>
 		<script type="text/javascript" src="js/app/socket.js"></script>
 		<script type="text/javascript" src="js/app/display.js"></script>
 		<script type="text/javascript" src="js/app/game.js"></script>
+		<script type="text/javascript" src="js/app/main.js"></script>
 	</body>
 </html>

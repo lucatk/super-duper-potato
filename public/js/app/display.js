@@ -8,6 +8,7 @@ APP.display.setupDisplay = function() {
 		$('.main-container').css('max-width', ($('.main-container').outerWidth() + 1) + 'px');
 
 		APP.display.setupHistoryBar();
+		APP.display.handleSizes();
 		APP.display.registerEvents();
 	});
 };
@@ -21,14 +22,32 @@ APP.display.registerEvents = function() {
 	$('.deposit-footer a').click(function() {
 		APP.display.hideBetScreen();
 	});
+	$('.item-box').click(function() {
+		$(this).toggleClass('checked');
+	});
+	$(window).resize(function() {
+		APP.display.handleSizes();
+	});
+};
+
+APP.display.handleSizes = function() {
+		/* Resetting max sizes so we can readjust them back to their supposed value */
+		$('.main-container, .jackpot-history').css({
+			'max-width': '',
+			'max-height': ''
+		});
+		/* Getting height of content for usage in  */
+		APP.display.contentHeight = $('.main-container').outerHeight()-95;
+		/* Setting max width of main container so animation works  */
+		$('.main-container').css('max-width', ($('.main-container').outerWidth() + 1) + 'px');
+		/* Setting max height of history container so animation works  */
+		$('.jackpot-history').css('max-height', ($('.jackpot-history').outerHeight() + 1) + 'px');
 };
 
 APP.display.setupHistoryBar = function() {
 	APP.display.historyBar = {};
 	APP.display.historyBar.itemHeight = $('.history-item').outerHeight();
 	APP.display.historyBar.historyItemCount = Math.floor(APP.display.contentHeight / APP.display.historyBar.itemHeight);
-	/* Setting max height of history container so animation works  */
-	$('.jackpot-history').css('max-height', ($('.jackpot-history').outerHeight() + 1) + 'px');
 };
 
 APP.display.renderJackpotDraw = function(draws) {
@@ -121,27 +140,44 @@ APP.display.buildInventoryItem = function(value) {
 			rarity = val.name.toLowerCase().split(' ')[0];
 		}
 		if(val.internal_name.startsWith('WearCategory')) {
-			wear = val.name.replace('-', ' ').replace(/[^A-Z]/g, '');;
+			wear = val.name;
 		}
 	});
 	var item = '<div class="item-box" data-classid="' + value.classid + '" data-instanceid="' + value.instanceid + '" data-assetid="' + value.assetid + '"><p class="item-weapon">' + value.name.split(' |')[0] + '</p><p class="item-title">' + value.name.split('| ')[1] + '</p>';
 	item += '<img class="item-image" src="//steamcommunity-a.akamaihd.net/economy/image/' + value.icon_url + '/80fx60f">';
-	item += '<p class="item-info">' + wear + ' | $' + value.price + '</p></div>';
+	item += '<p class="item-wear">' + wear + '</p><p class="item-price">$' + value.price.toFixed(2) + '</p></div>';
 
 	return item;
 };
 
 APP.display.addBetScreenItems = function(msg) {
 	var inventory = msg.result;
-	var inventoryValue = 0.00;
 	var invHtml = '';
 	$.each(inventory, function(key, v) {
 		$.each(v, function(key, value) {
 			invHtml += APP.display.buildInventoryItem(value);
+			inventoryValue += value.price;
 		});
 	});
 	setTimeout(function() {
 		$('.inventory-content .inventory-container').html(invHtml);
+		$('.inventory-amount').html('Your inventory: $' + inventoryValue);
+		APP.display.registerEvents();
+	}, 501);
+};
+
+APP.display.addDepositScreenItems = function(msg) {
+	var inventory = JSON.parse(msg.result);
+	var inventoryValue = 0.00;
+	var invHtml = '';
+	$.each(inventory, function(key, value) {
+		invHtml += APP.display.buildInventoryItem(value);
+		inventoryValue += value.price;
+	});
+	setTimeout(function() {
+		$('.inventory-content .inventory-container').html(invHtml);
+		$('.inventory-amount').html('Your inventory: $' + inventoryValue.toFixed(2));
+		APP.display.registerEvents();
 	}, 501);
 };
 
