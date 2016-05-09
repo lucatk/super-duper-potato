@@ -10,7 +10,7 @@ var logger = new (Winston.Logger)({
 				level: 'debug'
 			}),
 			new (require('winston-daily-rotate-file'))({
-				level: 'info', 
+				level: 'info',
 				timestamp: true,
 				datePattern: '.yyyyMMdd',
 				filename: 'logs/' + config.logFile,

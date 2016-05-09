@@ -35,8 +35,11 @@
 						<li class="nav-item dropdown <% if(typeof current != 'undefined') { if(current == 'myprofile') {%>active<% }} %>">
 							<a id="account-dropdown" class="nav-link" href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><%= user.lastKnownName %> <img class="profile-picture" src="<%= user.avatars.normal %>"><span class="caret"></span><% if(typeof current != 'undefined') { if(current == 'myprofile') {%> <span class="sr-only">(current)</span><% }} %></a>
 							<div class="dropdown-menu" aria-labelledby="Account">
-								<a class="dropdown-item" href="#">Show Profile</a>
-								<a class="dropdown-item" href="/auth/logout">Logout</a>
+                <a class="dropdown-item" href="/deposit"><i class="fa fa-inbox fa-fw" aria-hidden="true"></i> Deposit</a>
+                <a class="dropdown-item" href="/withdraw"><i class="fa fa-university fa-fw" aria-hidden="true"></i> Withdraw</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Show Profile</a>
+								<a class="dropdown-item" href="/auth/logout"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i> Logout</a>
 							</div>
 						</li>
 					<% } %>

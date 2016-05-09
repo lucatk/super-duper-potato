@@ -44,6 +44,13 @@ body {
 			color: #0275d8;
 		}
 
+		.dropdown-menu {
+			i {
+				font-size: 14px;
+				margin-top: -2px;
+			}
+		}
+
 		.nav-link {
 			z-index: 1;
 			color: rgba(0, 0, 0, 0.4);
