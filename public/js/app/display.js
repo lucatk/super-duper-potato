@@ -15,18 +15,58 @@ APP.display.setupDisplay = function() {
 
 APP.display.registerEvents = function() {
 	/* Event for "Add items to bet" button */
-	$('.add-items a').click(function() {
+	$('.add-items a').off('click').on('click', function() {
 		APP.display.showBetScreen();
-		APP.socket.loadUserInventory(APP.display.addBetScreenItems);
+		APP.socket.loadUserInventory(APP.handleUserInventory);
 	});
-	$('.deposit-footer a').click(function() {
+	$('.deposit-footer a').off('click').on('click', function() {
 		APP.display.hideBetScreen();
 	});
-	$('.item-box').click(function() {
-		$(this).toggleClass('checked');
+	$('.item-box').off('click').on('click', function() {
+		var selectedItem = null;
+		var thisItem = $(this);
+		APP.inventory.forEach(function(item) {
+			if(item.assetid == parseInt(thisItem.data('assetid'))) {
+				selectedItem = item;
+			}
+		});
+		if(!thisItem.hasClass('checked')) {
+			if(APP.page == 'home' && APP.selectedItems.length >= 15)
+				return;
+			if(selectedItem !== null) {
+				APP.selectedItems.push(selectedItem);
+			}
+		} else {
+			var i = 0;
+			var itemIndex = -1;
+			APP.selectedItems.forEach(function(item) {
+				if(item.assetid == parseInt(thisItem.data('assetid'))) {
+					itemIndex = i;
+				}
+				i++;
+			});
+			if(itemIndex > -1) {
+				APP.selectedItems.splice(itemIndex, 1);
+			}
+		}
+		thisItem.toggleClass('checked');
+		$('.deposit-footer > button').prop('disabled', APP.selectedItems.length < 1);
 	});
-	$(window).resize(function() {
+	$(window).off('resize').on('resize', function() {
 		APP.display.handleSizes();
+	});
+	$('[data-toggle="popover"]').popover();
+	$('.deposit-footer button').on('shown.bs.popover', function() {
+		APP.display.registerEvents();
+	});
+	$('.popover .confirm-deposit-button').off('click').on('click', function() {
+		APP.display.showDepositPending('<p>Sending your deposit offer! This can take up to 2 minutes.</p>');
+		APP.socket.sendDepositOffer(APP.selectedItems, APP.display.updateDepositStatus);
+	});
+	$('.check-offer-button').off('click').on('click', function() {
+		var html = $('.check-offer-button').wrap('<p/>').parent().html();
+		$('.check-offer-button').unwrap();
+		APP.display.showDepositPending('<p>Waiting for your deposit offer to be accepted! This can take up to 5 minutes.</p>' + html);
 	});
 };
 
@@ -85,7 +125,7 @@ APP.display.showBetScreen = function() {
 	$('.jackpot-listing').fadeOut(700);
 
 	setTimeout(function() {
-		var html = '<div class="inventory-content"><div class="inventory-container"></div></div><div class="deposit-footer"><a>Cancel</a><button type="submit" class="btn btn-primary" disabled>Add to deposit...</button></div>';
+		var html = '<div class="inventory-content"><div class="loading-container"><i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw margin-bottom"></i><span class="sr-only">Loading...</span></div><div class="inventory-container"></div></div><div class="deposit-footer"><a>Cancel</a><button type="submit" class="btn btn-primary" disabled>Add to deposit...</button></div>';
 		$('.jackpot-deposit').html($('.jackpot-deposit').html() + html);
 		$('.item-box').click(function() {
 			$(this).toggleClass('checked');
@@ -150,24 +190,25 @@ APP.display.buildInventoryItem = function(value) {
 	return item;
 };
 
-APP.display.addBetScreenItems = function(msg) {
-	var inventory = msg.result;
+APP.display.addBetScreenItems = function() {
+	var inventory = APP.inventory;
 	var invHtml = '';
-	$.each(inventory, function(key, v) {
-		$.each(v, function(key, value) {
-			invHtml += APP.display.buildInventoryItem(value);
-			inventoryValue += value.price;
-		});
+	$.each(inventory, function(key, value) {
+		invHtml += APP.display.buildInventoryItem(value);
 	});
 	setTimeout(function() {
+		$('.inventory-content .inventory-container').hide();
 		$('.inventory-content .inventory-container').html(invHtml);
-		$('.inventory-amount').html('Your inventory: $' + inventoryValue);
+		$('.inventory-content .inventory-container').waitForImages(function(){
+			$('.loading-container').remove();
+		  $(this).show();
+		});
 		APP.display.registerEvents();
 	}, 501);
 };
 
-APP.display.addDepositScreenItems = function(msg) {
-	var inventory = JSON.parse(msg.result);
+APP.display.addDepositScreenItems = function() {
+	var inventory = APP.inventory;
 	var inventoryValue = 0.00;
 	var invHtml = '';
 	$.each(inventory, function(key, value) {
@@ -175,10 +216,45 @@ APP.display.addDepositScreenItems = function(msg) {
 		inventoryValue += value.price;
 	});
 	setTimeout(function() {
+		$('.inventory-content .inventory-container').hide();
 		$('.inventory-content .inventory-container').html(invHtml);
-		$('.inventory-amount').html('Your inventory: $' + inventoryValue.toFixed(2));
+		$('.inventory-content .inventory-container').waitForImages(function(){
+			$('.loading-container').remove();
+		  $(this).show();
+			$('.inventory-amount').html('Your inventory: $' + inventoryValue.toFixed(2));
+		});
 		APP.display.registerEvents();
 	}, 501);
+};
+
+APP.display.showDepositPending = function(message) {
+	$('.inventory-amount').remove();
+	$('.deposit-footer').remove();
+	$('.deposit-container').html('<div class="loading-container"><i class="fa fa-refresh fa-spin fa-3x fa-fw"></i></div>' + message);
+};
+
+APP.display.updateDepositStatus = function(msg) {
+	if(typeof msg.err !== 'undefined' && msg.err !== null) {
+		$('.deposit-container').html('<div class="loading-container"><i class="fa fa-exclamation fa-3x fa-fw"></i></div><p>An error occured while sending your deposit offer: ' + msg.err + '</p><button class="btn btn-primary" role="button" onclick="window.location.reload()">Retry</button>');
+	} else {
+		var html;
+		if(typeof msg.status !== 'undefined' && msg.status !== null) {
+			if(msg.status === 'accepted') {
+				html = '<div class="loading-container"><i class="fa fa-check fa-3x fa-fw"></i></div><p>Success! Your deposit offer was accepted. Click the button below to start playing. Have fun!</p><button class="btn btn-primary" role="button" onclick="window.location.href=\'http://localhost:3030/\'">Play now</button>';
+			} else {
+				html = '<div class="loading-container"><i class="fa fa-exclamation fa-3x fa-fw"></i></div><p>Aww :( Your deposit offer got cancelled. We hope you still love us! <3</p>';
+			}
+		} else {
+			html = '<div class="loading-container"><i class="fa fa-check fa-3x fa-fw"></i></div><p>We sent you the deposit offer, now you only have to accept it! ';
+			if(msg.result === 'pending') {
+				html += 'Unfortunately we could not get the link for you, so you have to check for yourself.</p>';
+			} else {
+				html += 'But no worries, we got you covered: just click the button below and it is magically gonna take you to the offer!</p><button class="check-offer-button btn btn-primary" role="button" onclick="window.open(\'https://steamcommunity.com/tradeoffer/' + msg.result + '\')">Go to offer</button>';
+			}
+		}
+		$('.deposit-container').html(html);
+		APP.display.registerEvents();
+	}
 };
 
 APP.display.setupDisplay();

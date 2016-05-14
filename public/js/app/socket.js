@@ -14,4 +14,10 @@ APP.socket.loadSteamInventory = function(callback) {
 	APP.socket.handler.emit('loadsteaminventory', {});
 };
 
+APP.socket.sendDepositOffer = function(items, callback) {
+  APP.socket.handler.on('offersent', callback);
+  APP.socket.handler.on('offerstatus', callback);
+	APP.socket.handler.emit('senddepositoffer', { items: items });
+};
+
 APP.socket.init();

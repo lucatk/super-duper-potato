@@ -6,15 +6,23 @@
 		<div class="deposit-body">
 			<h1>Deposit</h1>
 	    <p class="inventory-amount"></p>
-			<div class="inventory-content">
-	      <div class="inventory-container">
+			<div class="deposit-container">
+				<div class="inventory-body">
+					<div class="inventory-content">
+						<div class="loading-container">
+							<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw margin-bottom"></i>
+							<span class="sr-only">Loading...</span>
+						</div>
+			      <div class="inventory-container">
 
-	      </div>
-	    </div>
+			      </div>
+			    </div>
+				</div>
+		    <div class="deposit-footer">
+		      <button class="btn btn-primary" data-toggle="popover" data-title="Confirm your deposit" data-content="&lt;p&gt;Do you accept our terms and conditions?&lt;/p&gt;&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary confirm-deposit-button&quot;&gt;Yes, I want to deposit.&lt;/button&gt;" data-html="true" data-trigger="focus" disabled>Deposit items...</button>
+		    </div>
+			</div>
 		</div>
-    <div class="deposit-footer">
-      <button type="submit" class="btn btn-primary" disabled>Deposit items...</button>
-    </div>
 	</div>
 </div>
 

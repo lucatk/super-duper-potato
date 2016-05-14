@@ -22,6 +22,10 @@ body {
 	min-height: 100%;
 }
 
+button:disabled {
+	cursor: default !important;
+}
+
 *::selection {
 	background: #a8d1ff;
 }
@@ -276,6 +280,10 @@ body {
 	.deposit-box {
 		position: relative;
  		padding: 0;
+		.loading-container {
+			margin: 40px auto;
+			width: fit-content;
+		}
 		.inventory-content {
 			padding: 5px 20px;
 			width: 100%;
@@ -447,17 +455,6 @@ body {
  		}
  	}
 
- 	.account-settings {
-		form {
-			width: 90%;
-			margin: 10px auto 0;
-
-			button {
-				margin: 0 calc(50% - 30px);
-			}
-		}
- 	}
-
 	&.no-bg .content-box {
  		margin-top: 40px;
  		-webkit-box-shadow:0 1px 10px rgba(0, 0, 0, 0.3);
@@ -472,26 +469,82 @@ body {
 				margin: 11px 15px;
 			}
 			.deposit-body {
-				padding-bottom: 55px;
+				//padding-bottom: 55px;
 				> p {
 					float: right;
 					margin: 8px 12px;
 					color: rgba(0, 0, 0, 0.4);
 				}
 			}
+			.deposit-container {
+				border-top: 1px solid rgba(0, 0, 0, 0.1);
+				-webkit-box-shadow: inset 0 10px 10px -10px rgba(0,0,0,0.1);
+				-moz-box-shadow: inset 0 10px 10px -10px rgba(0,0,0,0.1);
+				box-shadow: inset 0 10px 10px -10px rgba(0,0,0,0.1);
+				padding: 30px 40px 35px;
+				.inventory-body {
+					margin: -30px -40px 20px;
+				}
+				.loading-container {
+					margin-top: 20px;
+					i {
+						margin: 0 auto;
+					}
+				}
+				> p {
+					text-align: center;
+  				margin-top: -20px;
+				}
+				> button {
+					display: block;
+					margin: 20px auto 0;
+				}
+			}
 			.inventory-content {
 				height: calc(77vh - 55px);
+			}
+			.deposit-footer {
+				bottom: 0;
+				left: 0;
+			}
+		}
+
+		&.account-settings {
+			padding: 6px 0;
+			h1 {
+					margin-left: 11px;
+					margin-bottom: 10px;
+			}
+			.form-container {
 				border-top: 1px solid rgba(0, 0, 0, 0.1);
 				-webkit-box-shadow: inset 0 10px 10px -10px rgba(0,0,0,0.1);
 				-moz-box-shadow: inset 0 10px 10px -10px rgba(0,0,0,0.1);
 				box-shadow: inset 0 10px 10px -10px rgba(0,0,0,0.1);
 			}
+			form {
+				width: 90%;
+				margin: 10px auto 0;
 
-			.deposit-footer {
-				bottom: 0;
+				button {
+					margin: 0 calc(50% - 30px);
+				}
 			}
-		}
+	 	}
 	}
+}
+
+.popover button {
+	line-height: 0.9;
+	font-size: 12px;
+	margin-top: -20px;
+}
+
+.popover-title {
+	font-size: 0.9rem;
+}
+
+.popover-content {
+	font-size: 14px;
 }
 
 .caret {
